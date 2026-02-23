@@ -14,7 +14,7 @@ SRCREV = "4da3ba96e524938591620881a593977e2c97e439"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "python3 python3-pybind11 python3-numpy deviceaccess"
+DEPENDS = "python3 pybind11 python3-numpy deviceaccess"
 RDEPENDS:${PN} = "python3-numpy python3-core"
 
 # We are using setuptools3-base here to get the proper FILES defines for python
