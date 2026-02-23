@@ -14,12 +14,12 @@ SRCREV = "4da3ba96e524938591620881a593977e2c97e439"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "python3 pybind11 python3-numpy deviceaccess"
+DEPENDS = "python3 python3-pybind11 python3-numpy deviceaccess"
 RDEPENDS:${PN} = "python3-numpy python3-core"
 
 # We are using setuptools3-base here to get the proper FILES defines for python
 inherit cmake pkgconfig python3-dir setuptools3-base
 
 # Specify any options you want to pass to cmake using EXTRA_OECMAKE:
-EXTRA_OECMAKE = "-DNUMPY_INCLUDE_DIRS:PATH=${STAGING_DIR_HOST}/${PYTHON_SITEPACKAGES_DIR}/numpy/core/include"
+EXTRA_OECMAKE = "-DNUMPY_INCLUDE_DIRS:PATH=${STAGING_DIR_HOST}/${PYTHON_SITEPACKAGES_DIR}/numpy/core/include -Dpybind11_DIR=${STAGING_LIBDIR}/python${PYTHON_BASEVERSION}/site-packages/pybind11/share/cmake/pybind11"
 
